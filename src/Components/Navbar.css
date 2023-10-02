@@ -55,7 +55,7 @@
 
   }
   
-   @media (min-width: 421px) or (min-height: 558px) {
+   @media (max-width: 421px) and (max-height: 558px) {
   
     .navbar-container {
       flex-direction: column;
