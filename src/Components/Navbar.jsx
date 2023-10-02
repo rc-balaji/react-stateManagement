@@ -41,13 +41,19 @@ export const Navbar = () => {
       <div className="navbar-logo">Your Logo</div>
       <ul className="navbar-links">
         <li>
-          <a href="/home">Home</a>
+          <button onClick={()=>{
+            navigate("/home")
+          }} >Home</button>
         </li>
         <li>
-          <a href="/about">About</a>
+           <button onClick={()=>{
+            navigate("/about")
+          }} >About</button>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+        <button onClick={()=>{
+            navigate("/contact")
+          }} >Contact</button>
         </li>
       </ul>
       <div className="navbar-user">

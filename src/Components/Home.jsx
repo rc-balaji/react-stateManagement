@@ -111,6 +111,19 @@ export const Home = () => {
     }
   };
 
+  
+    function formatFirestoreTimestampToTime(timestamp) {
+        if (timestamp && timestamp.toDate) {
+          const date = timestamp.toDate(); // Convert Firestore timestamp to JavaScript Date
+          const hours = date.getHours().toString().padStart(2, "0"); // Get hours (in 2-digit format)
+          const minutes = date.getMinutes().toString().padStart(2, "0"); // Get minutes (in 2-digit format)
+          const seconds = date.getSeconds().toString().padStart(2, "0"); // Get seconds (in 2-digit format)
+          
+          return `${hours}:${minutes}:${seconds}`;
+        }
+        
+        return ""; // Handle the case where the timestamp is null or undefined
+      }
   return (<div>
   <Navbar />
     <div className="home-container">
@@ -133,16 +146,18 @@ export const Home = () => {
     <h2 className="task-list-header">Tasks</h2>
     {tasks.map((taskItem) => (
       <div className="task-item" key={taskItem.id}>
-        {taskItem.task}
-        {/* <input
-          type="text"
-          className="update-input"
-          placeholder="for update"
-          value={NewTask}
-          onChange={(e) => {
-            setNewTask(e.target.value);
-          }}
-        /> */}
+        <div style={{
+            display:'flex',
+            flexDirection:'row',
+            justifyContent:'space-between',
+            gap:20
+        }} > 
+        <h3>{taskItem.task}</h3>
+        <h3> {formatFirestoreTimestampToTime(taskItem.timestamp)}</h3>
+        
+       
+         </div>
+        
         <div className="btn" >
         <button className="update-button" onClick={() => Update(taskItem.id)}>
           Update
