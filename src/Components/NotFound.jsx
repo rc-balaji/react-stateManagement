@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
+
+
+
 export const NotFound = () => {
-    const navi = useNavigate()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        const time = setTimeout(()=>{
+            navigate('/')
+
+        },2000)
+       return ()=> clearTimeout(time)
+    },[navigate])
   const notFoundStyles = {
     display: 'flex',
     flexDirection: 'column',
@@ -26,7 +37,7 @@ export const NotFound = () => {
   };
 
   const handleButtonClick = () => {
-    navi('/')
+    navigate('/')
   };
 
   return (
