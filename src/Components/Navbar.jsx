@@ -16,6 +16,7 @@ export const Navbar = () => {
       if (user) {
         setCurrentUser(user);
       } else {
+        navigate('/')
         setCurrentUser(null);
       }
     });
