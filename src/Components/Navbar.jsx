@@ -38,7 +38,7 @@ export const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <div className="navbar-logo">Your Logo</div>
+      <div className="navbar-logo">Lets's Do</div>
       <ul className="navbar-links">
         <li>
           <button onClick={()=>{
@@ -58,7 +58,7 @@ export const Navbar = () => {
       </ul>
       <div className="navbar-user">
         <div className="navbar-user-info">
-          <h1>{currentUser ? currentUser.email : "Guest"}</h1>
+          <h3>{currentUser ? currentUser.email : "Guest"}</h3>
         </div>
         <button className="navbar-signout-button" onClick={SignOut}>
           Sign Out
