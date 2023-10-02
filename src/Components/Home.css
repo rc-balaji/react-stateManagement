@@ -1,0 +1,91 @@
+/* Home.css */
+
+/* Container for the entire component */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Styling for the input field and the "Add" button */
+.input-field {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the task list */
+.task-list {
+  margin-top: 20px;
+}
+
+.task-list-header {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: auto;
+}
+
+/* Input field for task update and the "Update" and "Delete" buttons */
+.update-input {
+  margin-right: 10px;
+}
+
+.update-button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.delete-button {
+    margin: 5px;
+  background-color: #dc3545;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+
+/* Styling for the Navbar component (if needed) */
+/* You can add specific styles for your Navbar here */

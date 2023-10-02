@@ -5,86 +5,73 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-//   onAuthStateChanged,
 } from "firebase/auth";
 import { app } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
-
-
 export function Index() {
-
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
-//   const [redirectToHome, setRedirectToHome] = useState(false);
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         window.location.href = '/home'
-//     } else {
-//         window.location.href = '/'
-//     }
-// })
-
 
   const signInGL = async (e) => {
     e.preventDefault();
 
     try {
-      await signInWithPopup(auth,provider);
-    //   setRedirectToHome(true);
-    // window.location.href = '/home'
-    navigate('/home')
-
+      await signInWithPopup(auth, provider);
+      navigate('/home');
     } catch (err) {
       alert(err.message);
     }
   };
+
   const signIn = async (e) => {
     e.preventDefault();
 
     try {
       await signInWithEmailAndPassword(auth, user, pass);
-    //   window.location.href = '/home'
-      navigate('/home')
+      navigate('/home');
     } catch (err) {
       alert(err.message);
     }
   };
 
-  
- 
- 
-
   return (
-    <>
-    {/* <h1>{console.log(auth.currentUser.email)}</h1> */}
-      <form onSubmit={signIn}>
+    <div className="signin-container">
+      <div className="signin-header-container">
+        <h1 className="signin-header">Sign In</h1>
+        <p className="signin-subheader">Welcome back! Sign in to your account.</p>
+      </div>
+      <form onSubmit={signIn} className="signin-form">
         <input
           type="email"
-          placeholder="Enter Email"
-          onChange={(e) => {
-            setUser(e.target.value);
-          }}
+          placeholder="Email Address"
+          onChange={(e) => setUser(e.target.value)}
           required
+          className="signin-input"
         />
         <input
           type="password"
-          placeholder="Enter Password"
-          onChange={(e) => {
-            setPass(e.target.value);
-          }}
+          placeholder="Password"
+          onChange={(e) => setPass(e.target.value)}
           required
+          className="signin-input"
         />
-        <input type="submit" value="Sign In" />
-
-        <button onClick={signInGL}>Google</button>
+        <button type="submit" className="signin-button">
+          Sign In
+        </button>
+        <button onClick={signInGL} className="signin-google-button">
+          Sign In with Google
+        </button>
       </form>
-        <button onClick={()=>{
-            navigate('/signup')
-        }}>Sign Up</button>
-    </>
+      <p className="signup-link">
+        Don't have an account?{" "}
+        <button onClick={() => navigate('/signup')} className="signup-button">
+          Sign Up
+        </button>
+      </p>
+    </div>
   );
 }
