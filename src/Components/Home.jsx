@@ -77,7 +77,7 @@ export const Home = () => {
     if (!user) return;
     try{
         await updateDoc(doc(db, 'tasks', id),{
-            task:prompt("Enter a Task for Update")
+            task:prompt("Haiii","Enter a Task for Update")
         });
         setNewTask("")
     }catch(error){
@@ -90,7 +90,10 @@ export const Home = () => {
     if (!user) return;
 
     try{
-        await deleteDoc(doc(db, 'tasks', id));
+        await deleteDoc(doc(db, 'tasks', id)).then(()=>{
+          alert('Deleted Successfully')
+        });
+
     }catch(error){
         console.error(error.message);
     }
@@ -104,7 +107,7 @@ export const Home = () => {
         task: task,
         userId: user.uid,
         timestamp: serverTimestamp(),
-      });
+      }).then(()=>alert("Task Added Successfully"));
       setTask("");
     } catch (error) {
       console.error("Error adding task:", error);
